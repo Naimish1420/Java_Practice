@@ -1,33 +1,33 @@
+import java.util.*;
+
 public class Reveision {
 
-    public static int first = -1;
-    public static int last = -1;
-
-    public static void Occurance(String str, int idx, char element){
+  
+    public static void moveAllX(String str, int idx, int count, String newString){
 
         if (idx == str.length()) {
-            System.out.println(first);
-            System.out.println(last);
+            for(int i=0; i<count; i++){
+                newString += 'x';
+            }
+            System.out.println(newString);
             return;
         }
 
         char currChar = str.charAt(idx);
-        if (currChar == element) {
-            
-            if (first == -1) {
-                first = idx;
-            } else{
-                last = idx;
-            }
+        if (currChar == 'x') {
+            count++;
+            moveAllX(str, idx+1, count, newString);
+        } else{
+            newString += currChar;
+            moveAllX(str, idx+1, count, newString);
         }
-
-        Occurance(str, idx+1, element);
+       
     }
 
     public static void main(String[] args){
 
-        String str = "abcaabfav";
-        Occurance(str, first, 'a');
-    }
-    
+        String str = "axxvbxxdd";
+        moveAllX(str, 0, 0, "");
+
+    } 
 }
