@@ -3,7 +3,7 @@ public class Reveision {
     public static int first = -1;
     public static int last = -1;
 
-    public static void findOccurance(String str, int idx, char element){
+    public static void Occurance(String str, int idx, char element){
 
         if (idx == str.length()) {
             System.out.println(first);
@@ -21,13 +21,13 @@ public class Reveision {
             }
         }
 
-        findOccurance(str, idx+1, element);
+        Occurance(str, idx+1, element);
     }
 
     public static void main(String[] args){
 
         String str = "abcaabfav";
-        findOccurance(str, first, 'a');
+        Occurance(str, first, 'a');
     }
     
 }
