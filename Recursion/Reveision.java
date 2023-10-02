@@ -2,32 +2,24 @@ import java.util.*;
 
 public class Reveision {
 
-  
-    public static void moveAllX(String str, int idx, int count, String newString){
+   
+    public static int callGuest( int n){
 
-        if (idx == str.length()) {
-            for(int i=0; i<count; i++){
-                newString += 'x';
-            }
-            System.out.println(newString);
-            return;
+        if (n <= 1) {
+            return 1;
         }
 
-        char currChar = str.charAt(idx);
-        if (currChar == 'x') {
-            count++;
-            moveAllX(str, idx+1, count, newString);
-        } else{
-            newString += currChar;
-            moveAllX(str, idx+1, count, newString);
-        }
-       
+       int ways1 = callGuest(n-1);
+
+       int ways2 = (n-1) * callGuest(n-2);
+
+       return ways1 + ways2;
     }
 
     public static void main(String[] args){
+       int n=4;
 
-        String str = "axxvbxxdd";
-        moveAllX(str, 0, 0, "");
-
+       System.out.println(callGuest(n));
+      
     } 
 }
