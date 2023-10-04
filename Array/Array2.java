@@ -2,7 +2,7 @@ public class Array2 {
 
     public static void main(String[] args){
         // int[] marks = new int[3];
-        // int marks[] = new int[3]i
+        // int marks[] = new int[3];
         int marks[] = {97, 98, 95};
         // marks[0] = 97;
         // marks[1] = 98;
