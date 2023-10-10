@@ -1,20 +1,32 @@
+import java.util.HashSet;
 import java.util.Scanner;
 
 public class Solution {
 
-    public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int m = sc.nextInt();
+   
+    public static void printPermutations(String str, String newString){
 
-        for(int i=1; i<=n; i++){
-
-            for(int j=1; j<=m; j++){
-                System.out.print("*");
-            }
-
-            System.out.println();
+        if (str.length() == 0) {
+            System.out.println(newString);
         }
+
+        for(int i=0; i<str.length(); i++){
+            char currChar = str.charAt(i);
+
+            String newStr = str.substring(0, i)+ str.substring(i+1);
+            printPermutations(newStr, newString+currChar);
+        }
+        
+    }
+    
+    public static void main(String[] args){
+       
+        String str = "abc";
+
+        printPermutations(str, "");
+
+       
+        
     }
 
     
